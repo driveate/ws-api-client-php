@@ -1,20 +1,12 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
+    "name": "driveate/ws-api-client-php",
     "version": "1.0.0",
-    "description": "",
+    "description": "Wheel Fitment API PHP client SDK",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api"
-    ],
-    "homepage": "http://swagger.io",
-    "license": "proprietary",
-    "authors": [
-        {
-            "name": "Swagger and contributors",
-            "homepage": "https://github.com/swagger-api/swagger-codegen"
-        }
     ],
     "require": {
         "php": ">=5.5",
