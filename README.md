@@ -62,7 +62,7 @@ $apiInstance = new WsApiClient\Api\MakesApi(
 $countries = "us,gb,jp"; // string | Show information for local manufacturers from specified countries only. Use `GET /countries/` method to get the full list of countries. (e.g. `us,gb,jp`)
 
 try {
-    $result = $apiInstance->makesList($countries);
+    $result = $apiInstance->makesList(null, null, null, $countries, null);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MakesApi->makesList: ', $e->getMessage(), PHP_EOL;
