@@ -1,0 +1,13 @@
+# TiresAggregation
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**aspect_ratio** | [**\WsApiClient\Model\Aggregation**](Aggregation.md) |  | 
+**diameter** | [**\WsApiClient\Model\Aggregation**](Aggregation.md) |  | 
+**width** | [**\WsApiClient\Model\Aggregation**](Aggregation.md) |  | 
+**tire_size** | [**\WsApiClient\Model\SizeAggregation**](SizeAggregation.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
