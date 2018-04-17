@@ -1,6 +1,6 @@
 <?php
 /**
- * MakeModelTest
+ * MakeTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace WsApiClient;
 
 /**
- * MakeModelTest Class Doc Comment
+ * MakeTest Class Doc Comment
  *
  * @category    Class
- * @description MakeModel
+ * @description Make
  * @package     WsApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MakeModelTest extends \PHPUnit_Framework_TestCase
+class MakeTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class MakeModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "MakeModel"
+     * Test "Make"
      */
-    public function testMakeModel()
+    public function testMake()
     {
     }
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * MakeModel
+ * Make
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \WsApiClient\ObjectSerializer;
 
 /**
- * MakeModel Class Doc Comment
+ * Make Class Doc Comment
  *
  * @category Class
  * @package  WsApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MakeModel implements ModelInterface, ArrayAccess
+class Make implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MakeModel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MakeModel';
+    protected static $swaggerModelName = 'Make';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -263,7 +263,7 @@ class MakeModel implements ModelInterface, ArrayAccess
     {
 
         if ((!preg_match("/^[-a-zA-Z0-9_]+$/", $slug))) {
-            throw new \InvalidArgumentException("invalid value for $slug when calling MakeModel., must conform to the pattern /^[-a-zA-Z0-9_]+$/.");
+            throw new \InvalidArgumentException("invalid value for $slug when calling Make., must conform to the pattern /^[-a-zA-Z0-9_]+$/.");
         }
 
         $this->container['slug'] = $slug;

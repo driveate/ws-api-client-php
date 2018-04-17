@@ -57,7 +57,7 @@ class MakeWithModels implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'make' => '\WsApiClient\Model\MakeModel',
+        'make' => '\WsApiClient\Model\Make',
         'models' => '\WsApiClient\Model\ModelWithTrims[]'
     ];
 
@@ -226,7 +226,7 @@ class MakeWithModels implements ModelInterface, ArrayAccess
     /**
      * Gets make
      *
-     * @return \WsApiClient\Model\MakeModel
+     * @return \WsApiClient\Model\Make
      */
     public function getMake()
     {
@@ -236,7 +236,7 @@ class MakeWithModels implements ModelInterface, ArrayAccess
     /**
      * Sets make
      *
-     * @param \WsApiClient\Model\MakeModel $make make
+     * @param \WsApiClient\Model\Make $make make
      *
      * @return $this
      */

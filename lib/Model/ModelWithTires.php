@@ -57,7 +57,7 @@ class ModelWithTires implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'make' => '\WsApiClient\Model\MakeModel',
+        'make' => '\WsApiClient\Model\Make',
         'model' => '\WsApiClient\Model\Model',
         'year' => 'int',
         'years' => 'int[]',
@@ -268,7 +268,7 @@ class ModelWithTires implements ModelInterface, ArrayAccess
     /**
      * Gets make
      *
-     * @return \WsApiClient\Model\MakeModel
+     * @return \WsApiClient\Model\Make
      */
     public function getMake()
     {
@@ -278,7 +278,7 @@ class ModelWithTires implements ModelInterface, ArrayAccess
     /**
      * Sets make
      *
-     * @param \WsApiClient\Model\MakeModel $make make
+     * @param \WsApiClient\Model\Make $make make
      *
      * @return $this
      */

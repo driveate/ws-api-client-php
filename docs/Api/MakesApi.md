@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **makesList**
-> \WsApiClient\Model\MakeModel[] makesList($lang, $brands, $brands_exclude, $countries, $countries_exclude)
+> \WsApiClient\Model\Make[] makesList($lang, $brands, $brands_exclude, $countries, $countries_exclude)
 
 Returns a list of manufacturers
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\WsApiClient\Model\MakeModel[]**](../Model/MakeModel.md)
+[**\WsApiClient\Model\Make[]**](../Model/Make.md)
 
 ### Authorization
 

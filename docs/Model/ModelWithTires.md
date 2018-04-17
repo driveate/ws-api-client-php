@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**make** | [**\WsApiClient\Model\MakeModel**](MakeModel.md) |  | 
+**make** | [**\WsApiClient\Model\Make**](Make.md) |  | 
 **model** | [**\WsApiClient\Model\Model**](Model.md) |  | 
 **year** | **int** | Selected year (e.g. &#x60;2015&#x60;, can be __*&#x60;null&#x60;*__) | 
 **years** | **int[]** | Model production years | [optional] 

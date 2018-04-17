@@ -100,7 +100,7 @@ class MakesApi
      *
      * @throws \WsApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \WsApiClient\Model\MakeModel[]
+     * @return \WsApiClient\Model\Make[]
      */
     public function makesList($lang = null, $brands = null, $brands_exclude = null, $countries = null, $countries_exclude = null)
     {
@@ -121,11 +121,11 @@ class MakesApi
      *
      * @throws \WsApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \WsApiClient\Model\MakeModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WsApiClient\Model\Make[], HTTP status code, HTTP response headers (array of strings)
      */
     public function makesListWithHttpInfo($lang = null, $brands = null, $brands_exclude = null, $countries = null, $countries_exclude = null)
     {
-        $returnType = '\WsApiClient\Model\MakeModel[]';
+        $returnType = '\WsApiClient\Model\Make[]';
         $request = $this->makesListRequest($lang, $brands, $brands_exclude, $countries, $countries_exclude);
 
         try {
@@ -177,7 +177,7 @@ class MakesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WsApiClient\Model\MakeModel[]',
+                        '\WsApiClient\Model\Make[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -227,7 +227,7 @@ class MakesApi
      */
     public function makesListAsyncWithHttpInfo($lang = null, $brands = null, $brands_exclude = null, $countries = null, $countries_exclude = null)
     {
-        $returnType = '\WsApiClient\Model\MakeModel[]';
+        $returnType = '\WsApiClient\Model\Make[]';
         $request = $this->makesListRequest($lang, $brands, $brands_exclude, $countries, $countries_exclude);
 
         return $this->client
