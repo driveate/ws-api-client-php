@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
  - [BoltPattern](docs/Model/BoltPattern.md)
  - [Country](docs/Model/Country.md)
  - [Generation](docs/Model/Generation.md)
+ - [GenerationWithMakeAndModel](docs/Model/GenerationWithMakeAndModel.md)
  - [Make](docs/Model/Make.md)
  - [MakeWithModels](docs/Model/MakeWithModels.md)
  - [Market](docs/Model/Market.md)

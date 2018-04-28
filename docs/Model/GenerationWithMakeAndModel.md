@@ -1,8 +1,10 @@
-# Generation
+# GenerationWithMakeAndModel
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**make** | [**\WsApiClient\Model\Make**](Make.md) |  | 
+**model** | [**\WsApiClient\Model\Model**](Model.md) |  | 
 **name** | **string** | Generation name (e.g. &#x60;III Restyling&#x60;) | 
 **bodies** | [**\WsApiClient\Model\Body[]**](Body.md) |  | 
 **start_year** | **int** | Generation start year | [optional] 

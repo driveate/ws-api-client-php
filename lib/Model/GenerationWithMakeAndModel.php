@@ -1,6 +1,6 @@
 <?php
 /**
- * Generation
+ * GenerationWithMakeAndModel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \WsApiClient\ObjectSerializer;
 
 /**
- * Generation Class Doc Comment
+ * GenerationWithMakeAndModel Class Doc Comment
  *
  * @category Class
  * @package  WsApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Generation implements ModelInterface, ArrayAccess
+class GenerationWithMakeAndModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Generation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Generation';
+    protected static $swaggerModelName = 'GenerationWithMakeAndModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,6 +57,8 @@ class Generation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'make' => '\WsApiClient\Model\Make',
+        'model' => '\WsApiClient\Model\Model',
         'name' => 'string',
         'bodies' => '\WsApiClient\Model\Body[]',
         'start_year' => 'int',
@@ -70,6 +72,8 @@ class Generation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'make' => null,
+        'model' => null,
         'name' => null,
         'bodies' => null,
         'start_year' => null,
@@ -104,6 +108,8 @@ class Generation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'make' => 'make',
+        'model' => 'model',
         'name' => 'name',
         'bodies' => 'bodies',
         'start_year' => 'start_year',
@@ -117,6 +123,8 @@ class Generation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'make' => 'setMake',
+        'model' => 'setModel',
         'name' => 'setName',
         'bodies' => 'setBodies',
         'start_year' => 'setStartYear',
@@ -130,6 +138,8 @@ class Generation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'make' => 'getMake',
+        'model' => 'getModel',
         'name' => 'getName',
         'bodies' => 'getBodies',
         'start_year' => 'getStartYear',
@@ -197,6 +207,8 @@ class Generation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['make'] = isset($data['make']) ? $data['make'] : null;
+        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['bodies'] = isset($data['bodies']) ? $data['bodies'] : null;
         $this->container['start_year'] = isset($data['start_year']) ? $data['start_year'] : null;
@@ -213,6 +225,12 @@ class Generation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['make'] === null) {
+            $invalidProperties[] = "'make' can't be null";
+        }
+        if ($this->container['model'] === null) {
+            $invalidProperties[] = "'model' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -231,6 +249,12 @@ class Generation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['make'] === null) {
+            return false;
+        }
+        if ($this->container['model'] === null) {
+            return false;
+        }
         if ($this->container['name'] === null) {
             return false;
         }
@@ -240,6 +264,54 @@ class Generation implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets make
+     *
+     * @return \WsApiClient\Model\Make
+     */
+    public function getMake()
+    {
+        return $this->container['make'];
+    }
+
+    /**
+     * Sets make
+     *
+     * @param \WsApiClient\Model\Make $make make
+     *
+     * @return $this
+     */
+    public function setMake($make)
+    {
+        $this->container['make'] = $make;
+
+        return $this;
+    }
+
+    /**
+     * Gets model
+     *
+     * @return \WsApiClient\Model\Model
+     */
+    public function getModel()
+    {
+        return $this->container['model'];
+    }
+
+    /**
+     * Sets model
+     *
+     * @param \WsApiClient\Model\Model $model model
+     *
+     * @return $this
+     */
+    public function setModel($model)
+    {
+        $this->container['model'] = $model;
+
+        return $this;
+    }
 
     /**
      * Gets name

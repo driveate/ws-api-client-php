@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **generationsList**
-> \WsApiClient\Model\Generation[] generationsList($make, $model, $year, $lang)
+> \WsApiClient\Model\GenerationWithMakeAndModel[] generationsList($make, $model, $year, $lang)
 
 Generations for the given model
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\WsApiClient\Model\Generation[]**](../Model/Generation.md)
+[**\WsApiClient\Model\GenerationWithMakeAndModel[]**](../Model/GenerationWithMakeAndModel.md)
 
 ### Authorization
 

@@ -99,7 +99,7 @@ class GenerationsApi
      *
      * @throws \WsApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \WsApiClient\Model\Generation[]
+     * @return \WsApiClient\Model\GenerationWithMakeAndModel[]
      */
     public function generationsList($make, $model, $year = null, $lang = null)
     {
@@ -119,11 +119,11 @@ class GenerationsApi
      *
      * @throws \WsApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \WsApiClient\Model\Generation[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WsApiClient\Model\GenerationWithMakeAndModel[], HTTP status code, HTTP response headers (array of strings)
      */
     public function generationsListWithHttpInfo($make, $model, $year = null, $lang = null)
     {
-        $returnType = '\WsApiClient\Model\Generation[]';
+        $returnType = '\WsApiClient\Model\GenerationWithMakeAndModel[]';
         $request = $this->generationsListRequest($make, $model, $year, $lang);
 
         try {
@@ -175,7 +175,7 @@ class GenerationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WsApiClient\Model\Generation[]',
+                        '\WsApiClient\Model\GenerationWithMakeAndModel[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class GenerationsApi
      */
     public function generationsListAsyncWithHttpInfo($make, $model, $year = null, $lang = null)
     {
-        $returnType = '\WsApiClient\Model\Generation[]';
+        $returnType = '\WsApiClient\Model\GenerationWithMakeAndModel[]';
         $request = $this->generationsListRequest($make, $model, $year, $lang);
 
         return $this->client
