@@ -220,18 +220,6 @@ class Vehicle implements ModelInterface, ArrayAccess
 
     const LOCK_TYPE_NUT = 'nut';
     const LOCK_TYPE_BOLT = 'bolt';
-    const LOCK_TEXT_M10_X_125 = 'M10 x 1.25';
-    const LOCK_TEXT_M12_X_125 = 'M12 x 1.25';
-    const LOCK_TEXT_M12_X_15 = 'M12 x 1.5';
-    const LOCK_TEXT_M12_X_175 = 'M12 x 1.75';
-    const LOCK_TEXT_M14_X_125 = 'M14 x 1.25';
-    const LOCK_TEXT_M14_X_15 = 'M14 x 1.5';
-    const LOCK_TEXT_M14_X_20 = 'M14 x 2.0';
-    const LOCK_TEXT_M16_X_15 = 'M16 x 1.5';
-    const LOCK_TEXT__38___24_UNF = '3/8\\\" - 24 UNF';
-    const LOCK_TEXT__716___20_UNF = '7/16\\\" - 20 UNF';
-    const LOCK_TEXT__12___20_UNF = '1/2\\\" - 20 UNF';
-    const LOCK_TEXT__916___18_UNF = '9/16\\\" - 18 UNF';
     
 
     
@@ -245,29 +233,6 @@ class Vehicle implements ModelInterface, ArrayAccess
         return [
             self::LOCK_TYPE_NUT,
             self::LOCK_TYPE_BOLT,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLockTextAllowableValues()
-    {
-        return [
-            self::LOCK_TEXT_M10_X_125,
-            self::LOCK_TEXT_M12_X_125,
-            self::LOCK_TEXT_M12_X_15,
-            self::LOCK_TEXT_M12_X_175,
-            self::LOCK_TEXT_M14_X_125,
-            self::LOCK_TEXT_M14_X_15,
-            self::LOCK_TEXT_M14_X_20,
-            self::LOCK_TEXT_M16_X_15,
-            self::LOCK_TEXT__38___24_UNF,
-            self::LOCK_TEXT__716___20_UNF,
-            self::LOCK_TEXT__12___20_UNF,
-            self::LOCK_TEXT__916___18_UNF,
         ];
     }
     
@@ -343,14 +308,6 @@ class Vehicle implements ModelInterface, ArrayAccess
         if ($this->container['lock_text'] === null) {
             $invalidProperties[] = "'lock_text' can't be null";
         }
-        $allowedValues = $this->getLockTextAllowableValues();
-        if (!is_null($this->container['lock_text']) && !in_array($this->container['lock_text'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lock_text', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['bolt_pattern'] === null) {
             $invalidProperties[] = "'bolt_pattern' can't be null";
         }
@@ -392,10 +349,6 @@ class Vehicle implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['lock_text'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getLockTextAllowableValues();
-        if (!is_null($this->container['lock_text']) && !in_array($this->container['lock_text'], $allowedValues, true)) {
             return false;
         }
         if ($this->container['bolt_pattern'] === null) {
@@ -625,15 +578,6 @@ class Vehicle implements ModelInterface, ArrayAccess
      */
     public function setLockText($lock_text)
     {
-        $allowedValues = $this->getLockTextAllowableValues();
-        if (!in_array($lock_text, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lock_text', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['lock_text'] = $lock_text;
 
         return $this;
