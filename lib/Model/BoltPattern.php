@@ -207,15 +207,6 @@ class BoltPattern implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['stud'] === null) {
-            $invalidProperties[] = "'stud' can't be null";
-        }
-        if ($this->container['pcd'] === null) {
-            $invalidProperties[] = "'pcd' can't be null";
-        }
-        if ($this->container['count'] === null) {
-            $invalidProperties[] = "'count' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -228,15 +219,6 @@ class BoltPattern implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['stud'] === null) {
-            return false;
-        }
-        if ($this->container['pcd'] === null) {
-            return false;
-        }
-        if ($this->container['count'] === null) {
-            return false;
-        }
         return true;
     }
 

@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**showing_fp_only** | **bool** | Show front pair only | 
-**is_stock** | **bool** | Original Equipment (OE) | 
-**front** | [**\WsApiClient\Model\Wheel**](Wheel.md) |  | 
-**rear** | [**\WsApiClient\Model\Wheel**](Wheel.md) |  | 
+**showing_fp_only** | **bool** | Show front pair only | [optional] 
+**is_stock** | **bool** | Original Equipment (OE) | [optional] 
+**front** | [**\WsApiClient\Model\Wheel**](Wheel.md) |  | [optional] 
+**rear** | [**\WsApiClient\Model\Wheel**](Wheel.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

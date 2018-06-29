@@ -201,15 +201,6 @@ class Aggregation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['min'] === null) {
-            $invalidProperties[] = "'min' can't be null";
-        }
-        if ($this->container['max'] === null) {
-            $invalidProperties[] = "'max' can't be null";
-        }
-        if ($this->container['units'] === null) {
-            $invalidProperties[] = "'units' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -222,15 +213,6 @@ class Aggregation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['min'] === null) {
-            return false;
-        }
-        if ($this->container['max'] === null) {
-            return false;
-        }
-        if ($this->container['units'] === null) {
-            return false;
-        }
         return true;
     }
 

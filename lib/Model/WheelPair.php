@@ -207,18 +207,6 @@ class WheelPair implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['showing_fp_only'] === null) {
-            $invalidProperties[] = "'showing_fp_only' can't be null";
-        }
-        if ($this->container['is_stock'] === null) {
-            $invalidProperties[] = "'is_stock' can't be null";
-        }
-        if ($this->container['front'] === null) {
-            $invalidProperties[] = "'front' can't be null";
-        }
-        if ($this->container['rear'] === null) {
-            $invalidProperties[] = "'rear' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -231,18 +219,6 @@ class WheelPair implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['showing_fp_only'] === null) {
-            return false;
-        }
-        if ($this->container['is_stock'] === null) {
-            return false;
-        }
-        if ($this->container['front'] === null) {
-            return false;
-        }
-        if ($this->container['rear'] === null) {
-            return false;
-        }
         return true;
     }
 

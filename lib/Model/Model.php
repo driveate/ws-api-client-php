@@ -201,15 +201,6 @@ class Model implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['name_en'] === null) {
-            $invalidProperties[] = "'name_en' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -222,15 +213,6 @@ class Model implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['slug'] === null) {
-            return false;
-        }
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['name_en'] === null) {
-            return false;
-        }
         return true;
     }
 

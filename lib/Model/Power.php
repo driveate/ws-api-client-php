@@ -202,15 +202,6 @@ class Power implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['ps'] === null) {
-            $invalidProperties[] = "'ps' can't be null";
-        }
-        if ($this->container['hp'] === null) {
-            $invalidProperties[] = "'hp' can't be null";
-        }
-        if ($this->container['k_w'] === null) {
-            $invalidProperties[] = "'k_w' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,15 +214,6 @@ class Power implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['ps'] === null) {
-            return false;
-        }
-        if ($this->container['hp'] === null) {
-            return false;
-        }
-        if ($this->container['k_w'] === null) {
-            return false;
-        }
         return true;
     }
 

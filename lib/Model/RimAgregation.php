@@ -202,15 +202,6 @@ class RimAgregation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['diameter'] === null) {
-            $invalidProperties[] = "'diameter' can't be null";
-        }
-        if ($this->container['offset'] === null) {
-            $invalidProperties[] = "'offset' can't be null";
-        }
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,15 +214,6 @@ class RimAgregation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['diameter'] === null) {
-            return false;
-        }
-        if ($this->container['offset'] === null) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
-            return false;
-        }
         return true;
     }
 

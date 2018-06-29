@@ -60,6 +60,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'market' => '\WsApiClient\Model\Market',
         'body' => 'string',
         'trim' => 'string',
+        'slug' => 'string',
         'generation' => '\WsApiClient\Model\Generation',
         'stud_holes' => 'int',
         'pcd' => 'float',
@@ -68,6 +69,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'lock_text' => 'string',
         'bolt_pattern' => 'string',
         'power' => '\WsApiClient\Model\Power',
+        'engine_type' => 'string',
         'fuel' => 'string',
         'wheels' => '\WsApiClient\Model\WheelPair[]'
     ];
@@ -81,6 +83,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'market' => null,
         'body' => null,
         'trim' => null,
+        'slug' => null,
         'generation' => null,
         'stud_holes' => null,
         'pcd' => null,
@@ -89,6 +92,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'lock_text' => null,
         'bolt_pattern' => null,
         'power' => null,
+        'engine_type' => null,
         'fuel' => null,
         'wheels' => null
     ];
@@ -123,6 +127,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'market' => 'market',
         'body' => 'body',
         'trim' => 'trim',
+        'slug' => 'slug',
         'generation' => 'generation',
         'stud_holes' => 'stud_holes',
         'pcd' => 'pcd',
@@ -131,6 +136,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'lock_text' => 'lock_text',
         'bolt_pattern' => 'bolt_pattern',
         'power' => 'power',
+        'engine_type' => 'engine_type',
         'fuel' => 'fuel',
         'wheels' => 'wheels'
     ];
@@ -144,6 +150,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'market' => 'setMarket',
         'body' => 'setBody',
         'trim' => 'setTrim',
+        'slug' => 'setSlug',
         'generation' => 'setGeneration',
         'stud_holes' => 'setStudHoles',
         'pcd' => 'setPcd',
@@ -152,6 +159,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'lock_text' => 'setLockText',
         'bolt_pattern' => 'setBoltPattern',
         'power' => 'setPower',
+        'engine_type' => 'setEngineType',
         'fuel' => 'setFuel',
         'wheels' => 'setWheels'
     ];
@@ -165,6 +173,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'market' => 'getMarket',
         'body' => 'getBody',
         'trim' => 'getTrim',
+        'slug' => 'getSlug',
         'generation' => 'getGeneration',
         'stud_holes' => 'getStudHoles',
         'pcd' => 'getPcd',
@@ -173,6 +182,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'lock_text' => 'getLockText',
         'bolt_pattern' => 'getBoltPattern',
         'power' => 'getPower',
+        'engine_type' => 'getEngineType',
         'fuel' => 'getFuel',
         'wheels' => 'getWheels'
     ];
@@ -255,6 +265,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         $this->container['market'] = isset($data['market']) ? $data['market'] : null;
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
         $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
         $this->container['stud_holes'] = isset($data['stud_holes']) ? $data['stud_holes'] : null;
         $this->container['pcd'] = isset($data['pcd']) ? $data['pcd'] : null;
@@ -263,6 +274,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         $this->container['lock_text'] = isset($data['lock_text']) ? $data['lock_text'] : null;
         $this->container['bolt_pattern'] = isset($data['bolt_pattern']) ? $data['bolt_pattern'] : null;
         $this->container['power'] = isset($data['power']) ? $data['power'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['fuel'] = isset($data['fuel']) ? $data['fuel'] : null;
         $this->container['wheels'] = isset($data['wheels']) ? $data['wheels'] : null;
     }
@@ -276,27 +288,6 @@ class Vehicle implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['market'] === null) {
-            $invalidProperties[] = "'market' can't be null";
-        }
-        if ($this->container['body'] === null) {
-            $invalidProperties[] = "'body' can't be null";
-        }
-        if ($this->container['trim'] === null) {
-            $invalidProperties[] = "'trim' can't be null";
-        }
-        if ($this->container['generation'] === null) {
-            $invalidProperties[] = "'generation' can't be null";
-        }
-        if ($this->container['stud_holes'] === null) {
-            $invalidProperties[] = "'stud_holes' can't be null";
-        }
-        if ($this->container['pcd'] === null) {
-            $invalidProperties[] = "'pcd' can't be null";
-        }
-        if ($this->container['centre_bore'] === null) {
-            $invalidProperties[] = "'centre_bore' can't be null";
-        }
         $allowedValues = $this->getLockTypeAllowableValues();
         if (!is_null($this->container['lock_type']) && !in_array($this->container['lock_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -305,12 +296,6 @@ class Vehicle implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['lock_text'] === null) {
-            $invalidProperties[] = "'lock_text' can't be null";
-        }
-        if ($this->container['bolt_pattern'] === null) {
-            $invalidProperties[] = "'bolt_pattern' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -323,35 +308,8 @@ class Vehicle implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['market'] === null) {
-            return false;
-        }
-        if ($this->container['body'] === null) {
-            return false;
-        }
-        if ($this->container['trim'] === null) {
-            return false;
-        }
-        if ($this->container['generation'] === null) {
-            return false;
-        }
-        if ($this->container['stud_holes'] === null) {
-            return false;
-        }
-        if ($this->container['pcd'] === null) {
-            return false;
-        }
-        if ($this->container['centre_bore'] === null) {
-            return false;
-        }
         $allowedValues = $this->getLockTypeAllowableValues();
         if (!is_null($this->container['lock_type']) && !in_array($this->container['lock_type'], $allowedValues, true)) {
-            return false;
-        }
-        if ($this->container['lock_text'] === null) {
-            return false;
-        }
-        if ($this->container['bolt_pattern'] === null) {
             return false;
         }
         return true;
@@ -426,6 +384,30 @@ class Vehicle implements ModelInterface, ArrayAccess
     public function setTrim($trim)
     {
         $this->container['trim'] = $trim;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string $slug Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }
@@ -627,6 +609,30 @@ class Vehicle implements ModelInterface, ArrayAccess
     public function setPower($power)
     {
         $this->container['power'] = $power;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type Engine type (e.g. `V8`, can be __*`null`*__)
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }

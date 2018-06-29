@@ -1,6 +1,6 @@
 {
     "name": "driveate/ws-api-client-php",
-    "version": "1.0.0",
+    "version": "1.0.6",
     "description": "Wheel Fitment API PHP client SDK",
     "keywords": [
         "swagger",

@@ -309,24 +309,6 @@ class Wheel implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rim'] === null) {
-            $invalidProperties[] = "'rim' can't be null";
-        }
-        if ($this->container['rim_diameter'] === null) {
-            $invalidProperties[] = "'rim_diameter' can't be null";
-        }
-        if ($this->container['rim_width'] === null) {
-            $invalidProperties[] = "'rim_width' can't be null";
-        }
-        if ($this->container['rim_offset'] === null) {
-            $invalidProperties[] = "'rim_offset' can't be null";
-        }
-        if ($this->container['tire'] === null) {
-            $invalidProperties[] = "'tire' can't be null";
-        }
-        if ($this->container['tire_sizing_system'] === null) {
-            $invalidProperties[] = "'tire_sizing_system' can't be null";
-        }
         $allowedValues = $this->getTireSizingSystemAllowableValues();
         if (!is_null($this->container['tire_sizing_system']) && !in_array($this->container['tire_sizing_system'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -335,9 +317,6 @@ class Wheel implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['tire_construction'] === null) {
-            $invalidProperties[] = "'tire_construction' can't be null";
-        }
         $allowedValues = $this->getTireConstructionAllowableValues();
         if (!is_null($this->container['tire_construction']) && !in_array($this->container['tire_construction'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -346,21 +325,6 @@ class Wheel implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['tire_width'] === null) {
-            $invalidProperties[] = "'tire_width' can't be null";
-        }
-        if ($this->container['tire_aspect_ratio'] === null) {
-            $invalidProperties[] = "'tire_aspect_ratio' can't be null";
-        }
-        if ($this->container['tire_diameter'] === null) {
-            $invalidProperties[] = "'tire_diameter' can't be null";
-        }
-        if ($this->container['tire_section_width'] === null) {
-            $invalidProperties[] = "'tire_section_width' can't be null";
-        }
-        if ($this->container['tire_is_82series'] === null) {
-            $invalidProperties[] = "'tire_is_82series' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -373,48 +337,12 @@ class Wheel implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['rim'] === null) {
-            return false;
-        }
-        if ($this->container['rim_diameter'] === null) {
-            return false;
-        }
-        if ($this->container['rim_width'] === null) {
-            return false;
-        }
-        if ($this->container['rim_offset'] === null) {
-            return false;
-        }
-        if ($this->container['tire'] === null) {
-            return false;
-        }
-        if ($this->container['tire_sizing_system'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTireSizingSystemAllowableValues();
         if (!is_null($this->container['tire_sizing_system']) && !in_array($this->container['tire_sizing_system'], $allowedValues, true)) {
             return false;
         }
-        if ($this->container['tire_construction'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTireConstructionAllowableValues();
         if (!is_null($this->container['tire_construction']) && !in_array($this->container['tire_construction'], $allowedValues, true)) {
-            return false;
-        }
-        if ($this->container['tire_width'] === null) {
-            return false;
-        }
-        if ($this->container['tire_aspect_ratio'] === null) {
-            return false;
-        }
-        if ($this->container['tire_diameter'] === null) {
-            return false;
-        }
-        if ($this->container['tire_section_width'] === null) {
-            return false;
-        }
-        if ($this->container['tire_is_82series'] === null) {
             return false;
         }
         return true;
@@ -585,7 +513,7 @@ class Wheel implements ModelInterface, ArrayAccess
     public function setTireSizingSystem($tire_sizing_system)
     {
         $allowedValues = $this->getTireSizingSystemAllowableValues();
-        if (!in_array($tire_sizing_system, $allowedValues, true)) {
+        if (!is_null($tire_sizing_system) && !in_array($tire_sizing_system, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'tire_sizing_system', must be one of '%s'",
@@ -618,7 +546,7 @@ class Wheel implements ModelInterface, ArrayAccess
     public function setTireConstruction($tire_construction)
     {
         $allowedValues = $this->getTireConstructionAllowableValues();
-        if (!in_array($tire_construction, $allowedValues, true)) {
+        if (!is_null($tire_construction) && !in_array($tire_construction, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'tire_construction', must be one of '%s'",

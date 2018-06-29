@@ -213,18 +213,6 @@ class Tire implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
-        if ($this->container['aspect_ratio'] === null) {
-            $invalidProperties[] = "'aspect_ratio' can't be null";
-        }
-        if ($this->container['rim_diameter'] === null) {
-            $invalidProperties[] = "'rim_diameter' can't be null";
-        }
-        if ($this->container['count'] === null) {
-            $invalidProperties[] = "'count' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -237,18 +225,6 @@ class Tire implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['width'] === null) {
-            return false;
-        }
-        if ($this->container['aspect_ratio'] === null) {
-            return false;
-        }
-        if ($this->container['rim_diameter'] === null) {
-            return false;
-        }
-        if ($this->container['count'] === null) {
-            return false;
-        }
         return true;
     }
 

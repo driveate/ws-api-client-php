@@ -208,18 +208,6 @@ class TiresAggregation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['aspect_ratio'] === null) {
-            $invalidProperties[] = "'aspect_ratio' can't be null";
-        }
-        if ($this->container['diameter'] === null) {
-            $invalidProperties[] = "'diameter' can't be null";
-        }
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
-        if ($this->container['tire_size'] === null) {
-            $invalidProperties[] = "'tire_size' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -232,18 +220,6 @@ class TiresAggregation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['aspect_ratio'] === null) {
-            return false;
-        }
-        if ($this->container['diameter'] === null) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
-            return false;
-        }
-        if ($this->container['tire_size'] === null) {
-            return false;
-        }
         return true;
     }
 

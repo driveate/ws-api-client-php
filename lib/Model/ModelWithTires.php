@@ -225,18 +225,6 @@ class ModelWithTires implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['make'] === null) {
-            $invalidProperties[] = "'make' can't be null";
-        }
-        if ($this->container['model'] === null) {
-            $invalidProperties[] = "'model' can't be null";
-        }
-        if ($this->container['year'] === null) {
-            $invalidProperties[] = "'year' can't be null";
-        }
-        if ($this->container['generations'] === null) {
-            $invalidProperties[] = "'generations' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -249,18 +237,6 @@ class ModelWithTires implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['make'] === null) {
-            return false;
-        }
-        if ($this->container['model'] === null) {
-            return false;
-        }
-        if ($this->container['year'] === null) {
-            return false;
-        }
-        if ($this->container['generations'] === null) {
-            return false;
-        }
         return true;
     }
 

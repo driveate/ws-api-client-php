@@ -202,15 +202,6 @@ class Pressure implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['bar'] === null) {
-            $invalidProperties[] = "'bar' can't be null";
-        }
-        if ($this->container['psi'] === null) {
-            $invalidProperties[] = "'psi' can't be null";
-        }
-        if ($this->container['k_pa'] === null) {
-            $invalidProperties[] = "'k_pa' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,15 +214,6 @@ class Pressure implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['bar'] === null) {
-            return false;
-        }
-        if ($this->container['psi'] === null) {
-            return false;
-        }
-        if ($this->container['k_pa'] === null) {
-            return false;
-        }
         return true;
     }
 

@@ -57,8 +57,8 @@ class SizeAggregation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'min' => 'float',
-        'max' => 'float'
+        'min' => 'string',
+        'max' => 'string'
     ];
 
     /**
@@ -195,12 +195,6 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['min'] === null) {
-            $invalidProperties[] = "'min' can't be null";
-        }
-        if ($this->container['max'] === null) {
-            $invalidProperties[] = "'max' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -213,12 +207,6 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['min'] === null) {
-            return false;
-        }
-        if ($this->container['max'] === null) {
-            return false;
-        }
         return true;
     }
 
@@ -226,7 +214,7 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     /**
      * Gets min
      *
-     * @return float
+     * @return string
      */
     public function getMin()
     {
@@ -236,7 +224,7 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     /**
      * Sets min
      *
-     * @param float $min Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
+     * @param string $min Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
      *
      * @return $this
      */
@@ -250,7 +238,7 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     /**
      * Gets max
      *
-     * @return float
+     * @return string
      */
     public function getMax()
     {
@@ -260,7 +248,7 @@ class SizeAggregation implements ModelInterface, ArrayAccess
     /**
      * Sets max
      *
-     * @param float $max Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
+     * @param string $max Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
      *
      * @return $this
      */

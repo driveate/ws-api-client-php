@@ -61,7 +61,10 @@ class Trim implements ModelInterface, ArrayAccess
         'name' => 'string',
         'trim' => 'string',
         'body' => 'string',
-        'generation' => 'string'
+        'generation' => 'string',
+        'production_start_year' => 'int',
+        'production_end_year' => 'int',
+        'markets' => '\WsApiClient\Model\Market[]'
     ];
 
     /**
@@ -74,7 +77,10 @@ class Trim implements ModelInterface, ArrayAccess
         'name' => null,
         'trim' => null,
         'body' => null,
-        'generation' => null
+        'generation' => null,
+        'production_start_year' => null,
+        'production_end_year' => null,
+        'markets' => null
     ];
 
     /**
@@ -108,7 +114,10 @@ class Trim implements ModelInterface, ArrayAccess
         'name' => 'name',
         'trim' => 'trim',
         'body' => 'body',
-        'generation' => 'generation'
+        'generation' => 'generation',
+        'production_start_year' => 'production_start_year',
+        'production_end_year' => 'production_end_year',
+        'markets' => 'markets'
     ];
 
     /**
@@ -121,7 +130,10 @@ class Trim implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'trim' => 'setTrim',
         'body' => 'setBody',
-        'generation' => 'setGeneration'
+        'generation' => 'setGeneration',
+        'production_start_year' => 'setProductionStartYear',
+        'production_end_year' => 'setProductionEndYear',
+        'markets' => 'setMarkets'
     ];
 
     /**
@@ -134,7 +146,10 @@ class Trim implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'trim' => 'getTrim',
         'body' => 'getBody',
-        'generation' => 'getGeneration'
+        'generation' => 'getGeneration',
+        'production_start_year' => 'getProductionStartYear',
+        'production_end_year' => 'getProductionEndYear',
+        'markets' => 'getMarkets'
     ];
 
     /**
@@ -202,6 +217,9 @@ class Trim implements ModelInterface, ArrayAccess
         $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
+        $this->container['production_start_year'] = isset($data['production_start_year']) ? $data['production_start_year'] : null;
+        $this->container['production_end_year'] = isset($data['production_end_year']) ? $data['production_end_year'] : null;
+        $this->container['markets'] = isset($data['markets']) ? $data['markets'] : null;
     }
 
     /**
@@ -213,15 +231,6 @@ class Trim implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['trim'] === null) {
-            $invalidProperties[] = "'trim' can't be null";
-        }
-        if ($this->container['body'] === null) {
-            $invalidProperties[] = "'body' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,15 +243,6 @@ class Trim implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['trim'] === null) {
-            return false;
-        }
-        if ($this->container['body'] === null) {
-            return false;
-        }
         return true;
     }
 
@@ -260,7 +260,7 @@ class Trim implements ModelInterface, ArrayAccess
     /**
      * Sets slug
      *
-     * @param string $slug Combines trim and body name. Format: __*`trim+body`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0+GG2W`)
+     * @param string $slug Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class Trim implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Format: __*`trim (body)`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0 (GG2W)`)
+     * @param string $name Format: __*`trim (body) [generation]`*__ (e.g. `2.0 (GG2W) [III Restyling]`)
      *
      * @return $this
      */
@@ -363,6 +363,78 @@ class Trim implements ModelInterface, ArrayAccess
     public function setGeneration($generation)
     {
         $this->container['generation'] = $generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets production_start_year
+     *
+     * @return int
+     */
+    public function getProductionStartYear()
+    {
+        return $this->container['production_start_year'];
+    }
+
+    /**
+     * Sets production_start_year
+     *
+     * @param int $production_start_year Trim production start year (e.g. `2015`, can be __*`null`*__)
+     *
+     * @return $this
+     */
+    public function setProductionStartYear($production_start_year)
+    {
+        $this->container['production_start_year'] = $production_start_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets production_end_year
+     *
+     * @return int
+     */
+    public function getProductionEndYear()
+    {
+        return $this->container['production_end_year'];
+    }
+
+    /**
+     * Sets production_end_year
+     *
+     * @param int $production_end_year Trim production end year (e.g. `2016`, can be __*`null`*__)
+     *
+     * @return $this
+     */
+    public function setProductionEndYear($production_end_year)
+    {
+        $this->container['production_end_year'] = $production_end_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets markets
+     *
+     * @return \WsApiClient\Model\Market[]
+     */
+    public function getMarkets()
+    {
+        return $this->container['markets'];
+    }
+
+    /**
+     * Sets markets
+     *
+     * @param \WsApiClient\Model\Market[] $markets List of markets where this trim if present
+     *
+     * @return $this
+     */
+    public function setMarkets($markets)
+    {
+        $this->container['markets'] = $markets;
 
         return $this;
     }

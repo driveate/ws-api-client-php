@@ -195,12 +195,6 @@ class MakeWithModels implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['make'] === null) {
-            $invalidProperties[] = "'make' can't be null";
-        }
-        if ($this->container['models'] === null) {
-            $invalidProperties[] = "'models' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -213,12 +207,6 @@ class MakeWithModels implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['make'] === null) {
-            return false;
-        }
-        if ($this->container['models'] === null) {
-            return false;
-        }
         return true;
     }
 

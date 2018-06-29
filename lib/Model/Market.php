@@ -207,22 +207,10 @@ class Market implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
-        }
-        if (!preg_match("/^[-a-zA-Z0-9_]+$/", $this->container['slug'])) {
+        if (!is_null($this->container['slug']) && !preg_match("/^[-a-zA-Z0-9_]+$/", $this->container['slug'])) {
             $invalidProperties[] = "invalid value for 'slug', must be conform to the pattern /^[-a-zA-Z0-9_]+$/.";
         }
 
-        if ($this->container['abbr'] === null) {
-            $invalidProperties[] = "'abbr' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['name_en'] === null) {
-            $invalidProperties[] = "'name_en' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -235,19 +223,7 @@ class Market implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['slug'] === null) {
-            return false;
-        }
         if (!preg_match("/^[-a-zA-Z0-9_]+$/", $this->container['slug'])) {
-            return false;
-        }
-        if ($this->container['abbr'] === null) {
-            return false;
-        }
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['name_en'] === null) {
             return false;
         }
         return true;
@@ -274,7 +250,7 @@ class Market implements ModelInterface, ArrayAccess
     public function setSlug($slug)
     {
 
-        if ((!preg_match("/^[-a-zA-Z0-9_]+$/", $slug))) {
+        if (!is_null($slug) && (!preg_match("/^[-a-zA-Z0-9_]+$/", $slug))) {
             throw new \InvalidArgumentException("invalid value for $slug when calling Market., must conform to the pattern /^[-a-zA-Z0-9_]+$/.");
         }
 

@@ -201,15 +201,6 @@ class TrimWithMarketAndYears implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['trim'] === null) {
-            $invalidProperties[] = "'trim' can't be null";
-        }
-        if ($this->container['market'] === null) {
-            $invalidProperties[] = "'market' can't be null";
-        }
-        if ($this->container['years'] === null) {
-            $invalidProperties[] = "'years' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -222,15 +213,6 @@ class TrimWithMarketAndYears implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['trim'] === null) {
-            return false;
-        }
-        if ($this->container['market'] === null) {
-            return false;
-        }
-        if ($this->container['years'] === null) {
-            return false;
-        }
         return true;
     }
 

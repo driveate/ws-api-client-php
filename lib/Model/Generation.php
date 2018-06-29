@@ -213,12 +213,6 @@ class Generation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['bodies'] === null) {
-            $invalidProperties[] = "'bodies' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -231,12 +225,6 @@ class Generation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['bodies'] === null) {
-            return false;
-        }
         return true;
     }
 
