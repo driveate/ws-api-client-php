@@ -70,6 +70,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'string',
         'power' => '\WsApiClient\Model\Power',
         'engine_type' => 'string',
+        'engine_code' => 'string',
         'fuel' => 'string',
         'wheels' => '\WsApiClient\Model\WheelPair[]'
     ];
@@ -93,6 +94,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => null,
         'power' => null,
         'engine_type' => null,
+        'engine_code' => null,
         'fuel' => null,
         'wheels' => null
     ];
@@ -137,6 +139,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'bolt_pattern',
         'power' => 'power',
         'engine_type' => 'engine_type',
+        'engine_code' => 'engine_code',
         'fuel' => 'fuel',
         'wheels' => 'wheels'
     ];
@@ -160,6 +163,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'setBoltPattern',
         'power' => 'setPower',
         'engine_type' => 'setEngineType',
+        'engine_code' => 'setEngineCode',
         'fuel' => 'setFuel',
         'wheels' => 'setWheels'
     ];
@@ -183,6 +187,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'getBoltPattern',
         'power' => 'getPower',
         'engine_type' => 'getEngineType',
+        'engine_code' => 'getEngineCode',
         'fuel' => 'getFuel',
         'wheels' => 'getWheels'
     ];
@@ -275,6 +280,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         $this->container['bolt_pattern'] = isset($data['bolt_pattern']) ? $data['bolt_pattern'] : null;
         $this->container['power'] = isset($data['power']) ? $data['power'] : null;
         $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
+        $this->container['engine_code'] = isset($data['engine_code']) ? $data['engine_code'] : null;
         $this->container['fuel'] = isset($data['fuel']) ? $data['fuel'] : null;
         $this->container['wheels'] = isset($data['wheels']) ? $data['wheels'] : null;
     }
@@ -633,6 +639,30 @@ class Vehicle implements ModelInterface, ArrayAccess
     public function setEngineType($engine_type)
     {
         $this->container['engine_type'] = $engine_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_code
+     *
+     * @return string
+     */
+    public function getEngineCode()
+    {
+        return $this->container['engine_code'];
+    }
+
+    /**
+     * Sets engine_code
+     *
+     * @param string $engine_code Engine code (e.g. `G3LA`, can be __*`null`*__)
+     *
+     * @return $this
+     */
+    public function setEngineCode($engine_code)
+    {
+        $this->container['engine_code'] = $engine_code;
 
         return $this;
     }
